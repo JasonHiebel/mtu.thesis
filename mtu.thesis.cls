@@ -17,53 +17,32 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{mtu.thesis}[2015/09/22 Michigan Technological University Thesis]
 
-\RequirePackage{etoolbox}
-\newtoggle{@proposal}
-\DeclareOption{proposal}{\toggletrue{@proposal}}
+\newif\if@draft
+
+\DeclareOption{oneside}{
+\PassOptionsToPackage{margin=1in,left=1.25in,right=1.25in}{geometry}
+\PassOptionsToClass{oneside,openany}{report}
+}
+\DeclareOption{twoside}{
+\PassOptionsToPackage{margin=1in,left=1.5in}{geometry}
+\PassOptionsToClass{twoside,openright}{report}
+}
+\DeclareOption{draft}{\@drafttrue}
+\DeclareOption{showframe}{\PassOptionsToPackage{showframe}{geometry}}
+\ExecuteOptions{twoside}
 \ProcessOptions\relax
 
-%
-\LoadClass[
-	letterpaper,
-	twoside,
-	openright,
-	12pt,
-	notitlepage
-]{report}
+%%%
+%%% using the report class as a basis
+\LoadClass[letterpaper,notitlepage]{report}
 
-\RequirePackage[titles]{tocloft}
-\RequirePackage{titlesec}
-\newcommand{\hsp}{\hspace{20pt}}
-\titleformat{\chapter}[hang]
-{\Huge\scshape}{\thechapter\hsp}{0pt}{\Huge\scshape}
-\titleformat{\section}[hang]
-{\Large\scshape}{\thesection\hsp}{0pt}{\Large\scshape}
-\titleformat{\subsection}[hang]
-{\large\scshape}{\thesubsection\hsp}{0pt}{\large\scshape}
-
-% typefaces [3.1]
-\RequirePackage{helvet}
-
-% margins [3.2], paper size [3.3]
-\RequirePackage[
-	showframe,
-	letterpaper,
-	includehead,
-	includefoot,
-	margin=1in,left=1.5in
-]{geometry}
-
-% page numbers [3.4]
-\newcommand\frontmatter{\cleardoublepage\pagenumbering{roman}}
-\newcommand\mainmatter{\cleardoublepage\pagenumbering{arabic}}
-
-% double-sided printing: blank pages [3.5] 
-\RequirePackage{emptypage}
-
-% title page, approval page, dedication page [4.1, 4.2, 4.3, Appendix A]
+%%%
+%%% document information
 \def\@title     {\rule[.3em]{5in}{1pt}}
 \def\@author    {\rule[.3em]{1in}{1pt}}
 \def\@date      {\the\year}
+%\title, \author, \data already defined
+
 \def\@copyright {\rule[.3em]{1in}{1pt}}
 \renewcommand{\copyright}[1]{\def\@copyright{#1}}
 
@@ -79,10 +58,45 @@
 \newcommand{\affiliation}[2][Michigan Technological University]
 {\def\@university{#1}\def\@affiliation{#2}}
 
+%%%
+%%% [3.01] typefaces
+\RequirePackage{helvet}
+
+%%%
+%%% [3.02] margins
+%%% [3.03] paper size
+\RequirePackage[letterpaper,includehead,includefoot]{geometry}
+
+%%%
+%%% [3.04] page numbers
+\newcommand\frontmatter{\cleardoublepage\pagenumbering{roman}}
+\newcommand\mainmatter{\cleardoublepage\pagenumbering{arabic}}
+
+%%%
+%%% [3.05] double-sided printing 
+\RequirePackage{emptypage}
+
+%%%
+%%% [3.06] line spacing
+\RequirePackage{setspace}
+
+%%% [3.07] figures
+%%% [3.08] tables
+\RequirePackage{caption} 
+\captionsetup[figure]{skip=1em}
+\captionsetup[table]{skip=1em}
+
+%%%
+%%% [3.09] including oversize pages or media
+%%% [3.10] use of color
+% Support for these options are not included by default and are the responsibility of the student.
+
+%%% 
+%%% [4.01, Appendix A] title page
+\RequirePackage{comment}
 \renewcommand{\maketitle}{
 \cleardoublepage
 \begin{titlepage}
-\nottoggle{@proposal}{
 \begin{center}
 \vspace*{\fill}\textsc\@title\\[1em]
 \vspace*{\fill}By\\[1em]\@author\\[1em]
@@ -91,57 +105,108 @@
 \vspace*{\fill}\@copyright
 \vspace*{\fill}
 \end{center}
-}{
-\begin{center}
-\vspace*{\fill}\textsc\@title\\[1em]
-\vspace*{\fill}By\\[1em]\@author\\[1em]
-\vspace*{\fill}A \textsc{Proposal}
-\vspace*{\fill}
-\end{center}
-}
 \end{titlepage}
 \cleardoublepage
 }
 
+%%% 
+%%% [4.02, Appendix A] approval page
+\if@draft
+\excludecomment{approval}
+\else
 \newenvironment{approval}[1][1in]
 {\cleardoublepage\thispagestyle{empty}
-\nottoggle{@proposal}{
-\noindent This \MakeLowercase{\@type} has been approved in partial fulfillment of the requirements for the Degree of \textsc{\@degree} in \@prog.\\[1em]%
-\begin{flushright}\@affiliation\end{flushright}
-}{}%
+\noindent\begin{flushleft}This \MakeLowercase{\@type} has been approved in partial fulfillment of the requirements for the Degree of \textsc{\@degree} in \@prog.\end{flushleft}
+\begin{flushright}\@affiliation\end{flushright}%
 \vspace*{\fill}%
 \halign\bgroup%
-\begin{minipage}[b][#1]{0.3\textwidth}\vspace*{\fill}%
-\parbox[t][\baselineskip]{\textwidth}{\raggedleft##\hspace*{3mm}}%
-\end{minipage}&%
 \begin{minipage}[b][#1]{0.7\textwidth}\vspace*{\fill}%
-\hrulefill\\\parbox[t][\baselineskip]{\textwidth}{\raggedright\emph{##}}%
+\raggedleft\textsc{##}\hspace*{5mm}%
+\end{minipage}&%
+\begin{minipage}[b][#1]{0.3\textwidth}\vspace*{\fill}%
+\raggedright\emph{##}%
 \end{minipage}\cr%
 }
 {\egroup\cleardoublepage}
+\fi
 
+%%% 
+%%% [4.03, Appendix A] dedication page
+\if@draft
+\excludecomment{dedication}
+\else
 \newenvironment{dedication}
 {\cleardoublepage\thispagestyle{empty}%
 \begin{minipage}[c][\textheight]{\textwidth}%
 }
 {\end{minipage}\cleardoublepage}
+\fi
 
-\newenvironment{acknowledgements}
-{\cleardoublepage
-\chapter*{Acknowlegements}
-\addcontentsline{toc}{chapter}{Acknowlegments}
-}
-{\cleardoublepage}
-
-% table of contents [4.4]
+%%%
+%%% [4.04] table of contents
+%%% [4.05] list of figures
+%%% [4.06] list of tables
+\RequirePackage[nottoc]{tocbibind}
+\RequirePackage[titles]{tocloft}
+\RequirePackage{titlesec}
 \renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}}
-\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
 \renewcommand{\cftchapfont}{\large\scshape}
 \renewcommand{\cftchappagefont}{\large\scshape}
-\RequirePackage[nottoc]{tocbibind}
+\renewcommand{\cftbeforesecskip}{1em}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftsecfont}{\scshape}
+\renewcommand{\cftsecpagefont}{\scshape}
+\renewcommand{\cftsubsecleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftsubsecfont}{\scshape}
+\renewcommand{\cftsubsecpagefont}{\scshape}
+\renewcommand{\cftfigfont}{\scshape}
+\renewcommand{\cfttabfont}{\scshape}
+
+%%%
+%%% [4.07] preface
+\if@draft
+\excludecomment{preface}
+\else
+\newcommand{\prefacename}{Preface}
+\newenvironment{preface}
+{\chapter*{\prefacename}\addcontentsline{toc}{chapter}{\prefacename}}{}
+\fi
+
+%%%
+%%% [4.08] acknowledgements
+\if@draft
+\excludecomment{acknowledgements}
+\else
+\newenvironment{acknowledgements}
+{\chapter*{Acknowledgements}\addcontentsline{toc}{chapter}{Acknowlegments}}{}
+\fi
+
+%%%
+%%% [4.09] definitions
+%%% [4.10] list of abbreviations
+% Support for these options currently not available due to lack of knowledge in practice in their application
+
+%%%
+%%% [4.11] abstract
+\renewenvironment{abstract}
+{\chapter*{\abstractname}\addcontentsline{toc}{chapter}{\abstractname}}{}
+
+%%%
+%%% [4.12] main body
+\newcommand{\hsp}{\hspace{20pt}}
+\titleformat{\chapter}[display]{\Huge\scshape}{\filleft\Large{Chapter~\thechapter}}{0ex}{\titlerule\vspace{0em}}
+\titleformat{\section}[hang]
+{\Large\scshape}{\thesection\hsp}{0pt}{\Large\scshape}
+\titleformat{\subsection}[hang]
+{\large\scshape}{\thesubsection\hsp}{0pt}{\large\scshape}
+\titlespacing*{\chapter}{0pt}{0em}{4em}
+
+%%%
+%%% [4.13] reference list/bibliography
+% Support is already sufficiently available as part of the latex framework.
+
+%%%
+%%% [4.14] appendices
+% Support is already sufficiently available as part of the latex framework.
 
 
-
-
-% abstract [4.11]
-\renewenvironment{abstract}{\chapter*{\abstractname}}{}
