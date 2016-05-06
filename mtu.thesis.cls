@@ -69,8 +69,13 @@
 
 %%%
 %%% [3.04] page numbers
+%%% [????] headers and footers
 \newcommand\frontmatter{\cleardoublepage\pagenumbering{roman}}
 \newcommand\mainmatter{\cleardoublepage\pagenumbering{arabic}}
+\usepackage{fancyhdr}
+\pagestyle{fancy}\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyfoot[CE,CO]{\thepage}
 
 %%%
 %%% [3.05] double-sided printing 
@@ -194,7 +199,7 @@
 %%%
 %%% [4.12] main body
 \newcommand{\hsp}{\hspace{20pt}}
-\titleformat{\chapter}[display]{\Huge\scshape}{\filleft\Large{Chapter~\thechapter}}{0ex}{\titlerule\vspace{0em}}
+\titleformat{\chapter}[display]{\Huge\scshape}{\filleft\Large{\@chapapp~\thechapter}}{0ex}{\titlerule\vspace{0em}}
 \titleformat{\section}[hang]
 {\Large\scshape}{\thesection\hsp}{0pt}{\Large\scshape}
 \titleformat{\subsection}[hang]
