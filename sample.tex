@@ -5,6 +5,7 @@
 \fancyhead[LE,RO]{\leftmark}
 
 %%% for filler content
+\usepackage{mwe}
 \usepackage{lipsum}
 
 %%% for a nice looking copyright symbol
@@ -87,8 +88,9 @@
 
 \begin{figure}[t]
 \centering
-\note{Figure not included because I couldn't be bothered.}
-\caption[A classic example of activation energy being too high.]{If I could pull down an image from somewhere on compile time, should it otherwise not exist, then I would. Otherwise, it seems weird to deploy the thesis class with a seemingly unrelated image file, and providing a related image file i.e. Michigan Tech branding is professionally ill-advised.}
+\includegraphics[width=.48\linewidth]{example-image-a}\hfill
+\includegraphics[width=.48\linewidth]{example-image-b}
+\caption[The \emph{mwe} pacakge is pretty great!]{Like the \emph{lipsum} pacakge for text, there is there \emph{mwe} pacakge for images. Enjoy these glorious images in your sample file!}
 \end{figure}
 
 \lipsum[4-6]
@@ -137,6 +139,8 @@ Wednesday & 10C & 21C & Rain will still linger for the morning. Conditions will 
 \lipsum[1-20]
 
 \chapter{Future Work}
-\lipsum[1-20]
+\lipsum[1-5]
+\section{Things for an Undergraduate}
+\lipsum[1-10]
 
 \end{document}

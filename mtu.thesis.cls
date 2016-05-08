@@ -214,4 +214,3 @@
 %%% [4.14] appendices
 % Support is already sufficiently available as part of the latex framework.
 
-
