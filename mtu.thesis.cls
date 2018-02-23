@@ -20,12 +20,12 @@
 \newif\if@draft
 
 \DeclareOption{oneside}{
-\PassOptionsToPackage{margin=1in,left=1.25in,right=1.25in}{geometry}
-\PassOptionsToClass{oneside,openany}{report}
+\PassOptionsToPackage{includeheadfoot,margin=1in,left=1.25in,right=1.25in}{geometry}
+\PassOptionsToClass{oneside,openany,letterpaper}{report}
 }
 \DeclareOption{twoside}{
-\PassOptionsToPackage{margin=1in,left=1.5in}{geometry}
-\PassOptionsToClass{twoside,openright}{report}
+\PassOptionsToPackage{includeheadfoot,margin=1in,left=1.5in}{geometry}
+\PassOptionsToClass{twoside,openright,letterpaper}{report}
 }
 \DeclareOption{draft}{\@drafttrue}
 \DeclareOption{showframe}{\PassOptionsToPackage{showframe}{geometry}}
@@ -194,7 +194,7 @@
 %%%
 %%% [4.11] abstract
 \renewenvironment{abstract}
-{\chapter*{\abstractname}\addcontentsline{toc}{chapter}{\abstractname}}{}
+{\chapter*{\abstractname}\markboth{\scshape\MakeUppercase\abstractname}{}\addcontentsline{toc}{chapter}{\abstractname}}{}
 
 %%%
 %%% [4.12] main body
