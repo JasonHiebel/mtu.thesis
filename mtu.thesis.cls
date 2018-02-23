@@ -199,11 +199,14 @@
 %%%
 %%% [4.12] main body
 \newcommand{\hsp}{\hspace{20pt}}
-\titleformat{\chapter}[display]{\Huge\scshape}{\filleft\Large{\@chapapp~\thechapter}}{0ex}{\titlerule\vspace{0em}}
+\titleformat{\chapter}[display]
+{\Huge\scshape\onehalfspacing}{\filleft\Large{\@chapapp~\thechapter}}{0ex}{\titlerule\vspace{0em}}
 \titleformat{\section}[hang]
-{\Large\scshape}{\thesection\hsp}{0pt}{\Large\scshape}
+{\Large\scshape\onehalfspacing\filright}{\thesection\hsp}{0pt}{\Large\scshape}
 \titleformat{\subsection}[hang]
-{\large\scshape}{\thesubsection\hsp}{0pt}{\large\scshape}
+{\large\scshape\onehalfspacing\filright}{\thesubsection\hsp}{0pt}{\large\scshape}
+\titleformat{\subsubsection}[hang]
+{\large\scshape\onehalfspacing\filright}{\thesubsubsection\hsp}{0pt}{\normalsize\scshape}
 \titlespacing*{\chapter}{0pt}{0em}{4em}
 
 %%%
