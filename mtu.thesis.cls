@@ -126,7 +126,7 @@
 \vspace*{\fill}%
 \halign\bgroup%
 \begin{minipage}[b][#1]{0.7\textwidth}\vspace*{\fill}%
-\raggedleft\textsc{##}\hspace*{5mm}%
+\raggedleft\textsc{##\unskip:}\hspace*{5mm}%
 \end{minipage}&%
 \begin{minipage}[b][#1]{0.3\textwidth}\vspace*{\fill}%
 \raggedright\emph{##}%
