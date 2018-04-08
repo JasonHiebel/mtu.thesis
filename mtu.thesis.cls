@@ -8,10 +8,10 @@
 % ensure that their dissertation, thesis, or report is in accordance with the
 % requirements specified by the graduate school.
 %
-% The class is presented as an extention of the default report class, and is 
+% The class is presented as an extention of the default report class, and is
 % designed in as non-invasive of a method possible in order to maintain the
 % expectations and flexibility of that class.
-% 
+%
 % Wherever possible, citations to the afformentioned guide are provided as a
 % description for changes.
 \NeedsTeXFormat{LaTeX2e}
@@ -78,7 +78,7 @@
 \fancyfoot[CE,CO]{\thepage}
 
 %%%
-%%% [3.05] double-sided printing 
+%%% [3.05] double-sided printing
 \RequirePackage{emptypage}
 
 %%%
@@ -87,7 +87,7 @@
 
 %%% [3.07] figures
 %%% [3.08] tables
-\RequirePackage{caption} 
+\RequirePackage{caption}
 \captionsetup[figure]{skip=1em}
 \captionsetup[table]{skip=1em}
 
@@ -96,7 +96,7 @@
 %%% [3.10] use of color
 % Support for these options are not included by default and are the responsibility of the student.
 
-%%% 
+%%%
 %%% [4.01, Appendix A] title page
 \RequirePackage{comment}
 \renewcommand{\maketitle}{
@@ -114,7 +114,7 @@
 \cleardoublepage
 }
 
-%%% 
+%%%
 %%% [4.02, Appendix A] approval page
 \if@draft
 \excludecomment{approval}
@@ -135,16 +135,16 @@
 {\egroup\cleardoublepage}
 \fi
 
-%%% 
+%%%
 %%% [4.03, Appendix A] dedication page
 \if@draft
 \excludecomment{dedication}
 \else
 \newenvironment{dedication}
 {\cleardoublepage\thispagestyle{empty}%
-\begin{minipage}[c][\textheight]{\textwidth}%
+\begin{minipage}[c][\textheight]{\textwidth}\centering\topskip0pt\vspace*{\fill}%
 }
-{\end{minipage}\cleardoublepage}
+{\vspace*{\fill}\end{minipage}\cleardoublepage}
 \fi
 
 %%%
@@ -216,4 +216,3 @@
 %%%
 %%% [4.14] appendices
 % Support is already sufficiently available as part of the latex framework.
-
