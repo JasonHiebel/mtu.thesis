@@ -36,6 +36,9 @@
 %%% using the report class as a basis
 \LoadClass[letterpaper,notitlepage]{report}
 
+\RequirePackage{enumitem}
+\setlist[description]{font={\normalfont\scshape}}
+
 %%%
 %%% document information
 \def\@title     {\rule[.3em]{5in}{1pt}}
@@ -66,6 +69,7 @@
 %%% [3.02] margins
 %%% [3.03] paper size
 \RequirePackage[letterpaper,includehead,includefoot]{geometry}
+\raggedbottom
 
 %%%
 %%% [3.04] page numbers
@@ -181,9 +185,12 @@
 %%% [4.08] acknowledgements
 \if@draft
 \excludecomment{acknowledgements}
+\excludecomment{acknowledgments}
 \else
 \newenvironment{acknowledgements}
-{\chapter*{Acknowledgements}\addcontentsline{toc}{chapter}{Acknowlegments}}{}
+{\chapter*{Acknowledgements}\addcontentsline{toc}{chapter}{Acknowledgements}}{}
+\newenvironment{acknowledgments}
+{\chapter*{Acknowledgments}\addcontentsline{toc}{chapter}{Acknowledgments}}{}
 \fi
 
 %%%
