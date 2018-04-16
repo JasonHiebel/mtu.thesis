@@ -8,11 +8,11 @@
 % ensure that their dissertation, thesis, or report is in accordance with the
 % requirements specified by the graduate school.
 %
-% The class is presented as an extention of the default report class, and is
+% The class is presented as an extension of the default report class, and is
 % designed in as non-invasive of a method possible in order to maintain the
 % expectations and flexibility of that class.
 %
-% Wherever possible, citations to the afformentioned guide are provided as a
+% Wherever possible, citations to the aforementioned guide are provided as a
 % description for changes.
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{mtu.thesis}[2015/09/22 Michigan Technological University Thesis]

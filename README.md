@@ -16,7 +16,7 @@ University*
 
 ## Implementation ##
 
-The mtu.thesis class is a direct extension to the report class; any features available for the report class are available to this thesis class. Additionally, this class provides a modified title page, as well as new commands and environments for an (optional) preface, approvals page, and dedication page as perscribed by the guidelines document for dissertations, theses, and reports at Michigan Tech. Formatting details have been applied to all the document
+The mtu.thesis class is a direct extension to the report class; any features available for the report class are available to this thesis class. Additionally, this class provides a modified title page, as well as new commands and environments for an (optional) preface, approvals page, and dedication page as prescribed by the guidelines document for dissertations, theses, and reports at Michigan Tech. Formatting details have been applied to all the document
 parts prescribed in the guidelines to ensure a uniform look-and-feel.
 
 ### Document Information ###
@@ -62,13 +62,13 @@ For initial drafts, the `draft` option removes some of the clutter in the front 
 
 Finally, the `showframe` options should help debugging any layout problems.
 
-The main matter, references, and appendixes use default report class constructs. There is no added material for these sections as they are well supported features of latex by default, although they have been styled appropriately to give a consistant look-and-feel.
+The main matter, references, and appendixes use default report class constructs. There is no added material for these sections as they are well supported features of latex by default, although they have been styled appropriately to give a consistent look-and-feel.
 
 ### Styling ###
 
 The document is styled around the concept of soft-capitals. The title and approval pages, along with headers, are styled with soft-caps and as such the diligent user should consider using soft-caps for other structural formatting choices as well. This might include any header rows and or columns for tables, but probably shouldn't include minor points such as emphasis (`\emph`).
 
-The document is by default numbered with arabic numerals, unless the user provides the `\frontmatter` and `\mainmatter` commands to distingush the front matter from main matter. In that case, the front matter will be numbered with roman numerals and the main matter will be numbered with arabic numerals.
+The document is by default numbered with arabic numerals, unless the user provides the `\frontmatter` and `\mainmatter` commands to distinguish the front matter from main matter. In that case, the front matter will be numbered with roman numerals and the main matter will be numbered with arabic numerals.
 
 ### Compatibility ###
 
