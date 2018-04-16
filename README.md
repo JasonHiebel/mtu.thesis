@@ -16,7 +16,7 @@ University*
 
 ## Implementation ##
 
-The mtu.thesis class is a direct extension to the report class; any features available for the report class are available to this thesis class. Additionally, this class provides a modified title page, as well as new commands and environments for an (optional) preface, approvals page, and dedication page as perscribed by the guidelines document for dissertations, theses, and reports at Michigan Tech. Formatting details have been applied to all the document
+The mtu.thesis class is a direct extension to the report class; any features available for the report class are available to this thesis class. Additionally, this class provides a modified title page, as well as new commands and environments for an (optional) preface, approvals page, and dedication page as prescribed by the guidelines document for dissertations, theses, and reports at Michigan Tech. Formatting details have been applied to all the document
 parts prescribed in the guidelines to ensure a uniform look-and-feel.
 
 ### Document Information ###
@@ -47,7 +47,7 @@ In document order, the following commands and environments are available for the
  3. `\begin{dedication} ... \end{dedication}` Make the dedication page (section 4.03), optionally. Content is limited to a single page.
  4. `\tableofcontents`, `\listoffigures`, `\listoftables` Make content lists (sections 4.04-06), as necessary.
  5. `\begin{preface} ... \end{preface}` Make the preface (section 4.07), when necessary. This environment is in a similar vein to the abstract environment.
- 6. `\begin{acknowledgements} ... \end{acknowledgements}` Make the acknowledgements (section 4.08), optionally. This environment is in a similar vein to the abstract environment
+ 6. `\begin{acknowledgments} ... \end{acknowledgments}` Make the acknowledgments (section 4.08), optionally. This environment is in a similar vein to the abstract environment
  7. `\begin{abstract} ... \end{abstract}` Make the abstract (section 4.11).
 
 Currently there is no support for a list of definitions (section 4.09) or a list of abbreviations (section 4.10). These can be added at a later point when a use-case arises.
@@ -58,14 +58,14 @@ By default, the pages are constructed for a two-sided document (as if it were bi
 
 Chapters will always start on an odd page in the two-sided document, in accordance with the guidelines. In the one-sided document, chapters will open on any page. The title, approval, and dedication pages will display on an odd page regardless of the one-sided or two-sided settings.
 
-For initial drafts, the `draft` option removes some of the clutter in the front matter that is unnecessary before the published release. The removed front matter sections include the approval, dedication, acknowledgements pages as well as the preface which account for the sentimental and logistic portions of the document.
+For initial drafts, the `draft` option removes some of the clutter in the front matter that is unnecessary before the published release. The removed front matter sections include the approval, dedication, acknowledgments pages as well as the preface which account for the sentimental and logistic portions of the document.
 
 Finally, the `showframe` options should help debugging any layout problems.
 
-The main matter, references, and appendixes use default report class constructs. There is no added material for these sections as they are well supported features of latex by default, although they have been styled appropriately to give a consistant look-and-feel.
+The main matter, references, and appendixes use default report class constructs. There is no added material for these sections as they are well supported features of latex by default, although they have been styled appropriately to give a consistent look-and-feel.
 
 ### Styling ###
 
-The document is styled around the concept of soft-capitals. The title and approval pages, along with headers, are styled with soft-caps and as such the dilligent user should consider using soft-caps for other structural formatting choices as well. This might include any header rows and or columns for tables, but probably shouldn't include minor points such as emphasis (`\emph`).
+The document is styled around the concept of soft-capitals. The title and approval pages, along with headers, are styled with soft-caps and as such the diligent user should consider using soft-caps for other structural formatting choices as well. This might include any header rows and or columns for tables, but probably shouldn't include minor points such as emphasis (`\emph`).
 
-The document is by default numbered with arabic numerals, unless the user provides the `\frontmatter` and `\mainmatter` commands to distingush the front matter from main matter. In that case, the front matter will be numbered with roman numerals and the main matter will be numbered with arabic numerals.
+The document is by default numbered with arabic numerals, unless the user provides the `\frontmatter` and `\mainmatter` commands to distinguish the front matter from main matter. In that case, the front matter will be numbered with roman numerals and the main matter will be numbered with arabic numerals.
