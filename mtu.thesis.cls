@@ -182,7 +182,7 @@
 \fi
 
 %%%
-%%% [4.08] acknowledgments
+%%% [4.08] acknowledgements
 \if@draft
 \excludecomment{acknowledgements}
 \excludecomment{acknowledgments}

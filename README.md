@@ -58,7 +58,7 @@ By default, the pages are constructed for a two-sided document (as if it were bi
 
 Chapters will always start on an odd page in the two-sided document, in accordance with the guidelines. In the one-sided document, chapters will open on any page. The title, approval, and dedication pages will display on an odd page regardless of the one-sided or two-sided settings.
 
-For initial drafts, the `draft` option removes some of the clutter in the front matter that is unnecessary before the published release. The removed front matter sections include the approval, dedication, acknowledgments pages as well as the preface which account for the sentimental and logistic portions of the document.
+For initial drafts, the `draft` option removes some of the clutter in the front matter that is unnecessary before the published release. The removed front matter sections include the approval, dedication, acknowledgements pages as well as the preface which account for the sentimental and logistic portions of the document.
 
 Finally, the `showframe` options should help debugging any layout problems.
 
