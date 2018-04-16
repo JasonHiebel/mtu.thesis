@@ -5,8 +5,8 @@
 
 The goal of this class is to represent the structure and formatting of
 dissertations, theses, and reports at Michigan Technological University, as
-required by the guidelines put forth by the Graduate School, in a terse, 
-unobtrusive, and idiomatic fashion. This is a no-nonsense approach geared towards people who are somewhat familiar with basic latex development or who are interested in learning. 
+required by the guidelines put forth by the Graduate School, in a terse,
+unobtrusive, and idiomatic fashion. This is a no-nonsense approach geared towards people who are somewhat familiar with basic latex development or who are interested in learning.
 
 *Please note: while I have taken strides to meet as many formatting guidelines
 as are reasonably possible to enforce in an idiomatic fashion, I make no
@@ -47,7 +47,7 @@ In document order, the following commands and environments are available for the
  3. `\begin{dedication} ... \end{dedication}` Make the dedication page (section 4.03), optionally. Content is limited to a single page.
  4. `\tableofcontents`, `\listoffigures`, `\listoftables` Make content lists (sections 4.04-06), as necessary.
  5. `\begin{preface} ... \end{preface}` Make the preface (section 4.07), when necessary. This environment is in a similar vein to the abstract environment.
- 6. `\begin{acknowledgments} ... \end{acknowledgments}` Make the acknowledgments (section 4.08), optionally. This environment is in a similar vein to the abstract environment
+ 6. `\begin{acknowledgements} ... \end{acknowledgements}` Make the acknowledgements (section 4.08), optionally. This environment is in a similar vein to the abstract environment
  7. `\begin{abstract} ... \end{abstract}` Make the abstract (section 4.11).
 
 Currently there is no support for a list of definitions (section 4.09) or a list of abbreviations (section 4.10). These can be added at a later point when a use-case arises.
@@ -69,3 +69,9 @@ The main matter, references, and appendixes use default report class constructs.
 The document is styled around the concept of soft-capitals. The title and approval pages, along with headers, are styled with soft-caps and as such the diligent user should consider using soft-caps for other structural formatting choices as well. This might include any header rows and or columns for tables, but probably shouldn't include minor points such as emphasis (`\emph`).
 
 The document is by default numbered with arabic numerals, unless the user provides the `\frontmatter` and `\mainmatter` commands to distinguish the front matter from main matter. In that case, the front matter will be numbered with roman numerals and the main matter will be numbered with arabic numerals.
+
+### Compatibility ###
+
+The following packages are known to cause compatibility issues:
+
+  - fullpage: ignores inner/outer margin settings defined by the package
