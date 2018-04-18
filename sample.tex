@@ -24,9 +24,6 @@
 \dissertation {Your Degree i.e. Doctor of Philosophy}{Degree Program}
 \affiliation  {School or Department}
 
-%%% bibliography information
-\bibliographystyle{plain}
-
 %%% basic note command for loudly making sure you attend to something
 \usepackage{color}
 \newcommand{\note}[1]{{\color{red}\emph{#1}}}
@@ -130,7 +127,8 @@ Wednesday & 10C & 21C & Rain will still linger for the morning. Conditions will 
 \chapter{Discussion}
 \lipsum[1-20]
 
-\nocite{*}
+\nocite{*} % 'cite' all documents (for demonstration purposes, you'll likely want to remove this)
+\bibliographystyle{plain}
 \bibliography{sample}
 
 \appendix
