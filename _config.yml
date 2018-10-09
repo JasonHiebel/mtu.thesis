@@ -1,0 +1,11 @@
+title: mtu.thesis
+logo:
+description: Core document class definitions for Michigan Technological University theses and dissertations.
+show_downloads: true
+github:
+    zip_url: https://github.com/JasonHiebel/mtu.thesis/archive/master.zip
+    tar_url: https://github.com/JasonHiebel/mtu.thesis/archive/master.tar.gz
+    repository_url: https://github.com/JasonHiebel/mtu.thesis
+google_analytics:
+gems:
+- jekyll-seo-tag
